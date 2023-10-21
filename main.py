@@ -16,7 +16,14 @@ async def on_ready():
 
 @bot.command()
 async def hello(ctx):
-    await ctx.send(f'Привет! Я бот {bot.user}!')
+    await ctx.send(f'Привет! Я бот {bot.user}!' 
+                   '\n$heh - повторяет "he" введенное кол-во раз'
+                   '\n$repeat - повторяет слово введенное кол-во раз'
+                   '\n$choose - выбирает между введенными вариантами'
+                   '\n$mem - присылает мем'
+                   '\n$duck - gif с уточками'
+                   '\n$fox - gif с лисичками'
+                   '\n$eco - советы про экологию')
 
 @bot.command()
 async def heh(ctx, count_heh = 5):
