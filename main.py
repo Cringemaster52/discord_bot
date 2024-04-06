@@ -5,6 +5,12 @@ import random
 import os
 import requests
 
+list_eco = ['Найдите ближайший к вам контейнер, куда сможете относить мусор для переработки.', 'Обращайте внимание на вид упаковки еще в магазине.',
+'Помните, что отсортированный мусор должен быть чистым.',
+'Постарайтесь готовить еду самостоятельно, чтобы брать на работу в своем контейнере.',]
+
+list_facts = 
+
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -16,7 +22,7 @@ async def on_ready():
 
 @bot.command()
 async def hello(ctx):
-    await ctx.send(f'Привет! Я бот {bot.user}!' 
+    await ctx.send(f'Я бот {bot.user}!' 
                    '\n$mem - присылает мем'
                    '\n$facts - присылает факты'
                    '\n$eco - советы про экологию')
@@ -25,15 +31,11 @@ async def hello(ctx):
 async def mem(ctx):
     img_name = random.choice(os.listdir('images'))
     with open(f'images/{img_name}', 'rb') as f:
-        # В переменную кладем файл, который преобразуется в файл библиотеки Discord!
         picture = discord.File(f)
-   # Можем передавать файл как параметр!
     await ctx.send(file=picture)
 
-
-list = ['Найдите ближайший к вам контейнер, куда сможете относить мусор для переработки.', 'Обращайте внимание на вид упаковки еще в магазине.',
-'Помните, что отсортированный мусор должен быть чистым.',
-'Постарайтесь готовить еду самостоятельно, чтобы брать на работу в своем контейнере.',]
+@bot.command()
+async def facts(ctx):
 
 @bot.command()
 async def eco(ctx):
