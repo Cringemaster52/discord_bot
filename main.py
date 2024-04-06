@@ -9,7 +9,7 @@ list_eco = ['Найдите ближайший к вам контейнер, к�
 'Помните, что отсортированный мусор должен быть чистым.',
 'Постарайтесь готовить еду самостоятельно, чтобы брать на работу в своем контейнере.',]
 
-list_facts = 
+list_facts = ['
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -36,10 +36,12 @@ async def mem(ctx):
 
 @bot.command()
 async def facts(ctx):
+    fact = random.choice(list_facts)
+    await ctx.send(fact)
 
 @bot.command()
 async def eco(ctx):
-    sovet = random.choice(list) 
+    sovet = random.choice(list_eco) 
     await ctx.send(sovet)
 
 bot.run("TOKEN")
